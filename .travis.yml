@@ -1,0 +1,23 @@
+sudo: required
+services:
+  - docker
+env:
+  matrix:
+    secure: j9o6gFEhbj9IKGOnusVg+vt7i59q+lvMhxmhepETjSdJP0uVvjR0R2fc8jTPpm5RHi1QXyaH9vo5piVYl2Ggc9ObmIkV8iWWI8BJqVz70W63QUq6PtVwZRbWnjlho3uAw/PWTKHFfNKx40qjuvhDGqcRnhQ76u8KRPXZuxgBHThPJcz/DUpLsLnun9sjDCSQpLtWOTohXDd+QJYY6ftEVvDs24odeb1ti+DeCzRSyD5aSvU9VrHzcu8NBJ7CpJx5pH0l0DycMVnLww/J368VoLzENDTl6yGxdlXTdgg2Uep3rGin507zldrJBGJqpbu3JD+dKdu1/GXkt6MFgh3hqcAwqJ7VvOfYAC1+Mfyw4N6ImawAq0rPfHdqMr7gOTpvwESK/o+cAK9Z1AN30DHszd2SdG3Ams0FPE3ufG77dIbYJG5KlvNpbW57tfFpdkucrk01dndz2lhRaV+0+fU220JbSXs80anszTeQTkHgrQGlU+n2MqbLkw4UgZabJ8YneBhKPEwZqyFdHbphQf4ZeMCmw+S25fQoUgUX63t4gy6zMI75OOkr6NwJh9+tJX9/lBVOhJBh6vutziQ3NtFk3W4lU9iNyBjw6UP/tYv49CPraqx7y/pQj5ngINECGX+N+w1zegETVGoQKjr3nmu2InVnznEO8nGYCpMk4QSvxxM=
+
+
+script:
+  - docker build --tag elabit/ephex .
+  - docker run elabit/ephex
+
+after_script:
+  - docker images
+
+before_deploy:
+  - docker login -u "$DOCKERHUB_USER" -p "$DOCKERHUB_PASS"
+
+deploy:
+  provider: script
+  script: docker push elabit/ephex
+  on:
+    branch: master
