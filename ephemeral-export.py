@@ -47,6 +47,7 @@ class JsonCollector(object):
  
 if __name__ == '__main__':
   # Usage: json_exporter.py port endpoint
+  print('Starting to serve on port ' + str(sys.argv[1]))
   start_http_server(int(sys.argv[1]))
   REGISTRY.register(JsonCollector(sys.argv[2]))
 
