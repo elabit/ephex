@@ -8,7 +8,7 @@ env:
 
 script:
   - docker build --tag elabit/ephex:latest .
-  - docker run elabit/ephex:latest
+  # - docker run elabit/ephex:latest
 
 after_script:
   - docker images
