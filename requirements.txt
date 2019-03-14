@@ -1,0 +1,6 @@
+prometheus_client
+requests
+ipython
+ipdb
+vi
+screen
