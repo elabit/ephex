@@ -1,3 +1,4 @@
 ☐ Remove ipdb & ipython (just for development)
 ☐ Remove endpoint arg => Kube-API, remove file reading
 ☐ write documentation
+☐ treeder/bump VERSION
