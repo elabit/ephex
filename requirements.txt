@@ -3,5 +3,3 @@ kubernetes
 requests
 IPython
 ipdb
-vi
-screen
