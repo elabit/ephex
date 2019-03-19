@@ -1,4 +1,5 @@
-FROM python:2-slim
+# FROM python:2-slim
+FROM ubuntu:16.04
 
 ENV PORT=9230
 ENV BASEDIR=/app/ephemeral-exporter
