@@ -20,7 +20,7 @@ Before deploying, plese replace the Helm variables `{{ .Values.namespace }}` by 
 Then: 
 ```
 cd manifests
-for f in *.yaml; do oc apply -f $f; done
+oc apply -f *.yaml
 ```
 
 ## Get it 
