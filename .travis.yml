@@ -7,7 +7,8 @@ env:
 
 
 script:
-  - docker build --tag elabit/ephex:latest .
+  # - docker build --tag elabit/ephex:latest .
+  - docker build --tag elabit/ephex:dev .
   # - docker run elabit/ephex:latest
 
 after_script:
@@ -18,6 +19,6 @@ before_deploy:
 
 deploy:
   provider: script
-  script: docker push elabit/ephex:latest
+  script: docker push elabit/ephex:dev
   on:
     branch: master
