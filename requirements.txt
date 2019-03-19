@@ -1,7 +1,7 @@
 prometheus_client
 kubernetes
 requests
-IPython==5.0
+IPython
 ipdb
 vi
 screen
