@@ -25,4 +25,4 @@ RUN chmod ug+x $BASEDIR/*
 
 EXPOSE $PORT
 
-CMD python -u ./$SCRIPT $PORT endpoint
+CMD python -u ./$SCRIPT $PORT
