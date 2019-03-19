@@ -1,0 +1,37 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    app: ephex
+  name: ephex
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ephex
+  template:
+    metadata:
+      labels:
+        app: ephex
+      namespace: {{ .Values.namespace }}
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/"
+        prometheus.io/scrape_port: "9230"      
+    spec:
+      serviceAccountName: ephex
+      containers:
+      - image: elabit/ephex:latest
+        name: ephex
+        imagePullPolicy: Always
+        ports:
+        - containerPort: "9230"
+          name: scrape
+        resources:
+          requests:
+            memory: 200Mi
+            # cpu: 100m
+          limits:
+            memory: 250Mi
+            # cpu: 200m

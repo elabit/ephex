@@ -1,0 +1,29 @@
+apiVersion: rbac.authorization.k8s.io/v1 
+kind: ClusterRole 
+metadata: 
+  annotations: 
+    rbac.authorization.kubernetes.io/autoupdate: "true" 
+  labels: 
+  name: ephex-ro
+rules: 
+- apiGroups: 
+  - "" 
+  resources: ["*"] 
+  verbs: 
+  - get 
+  - list 
+  - watch 
+- apiGroups: 
+  - extensions 
+  resources: ["*"] 
+  verbs: 
+  - get 
+  - list 
+  - watch 
+- apiGroups: 
+  - apps 
+  resources: ["*"] 
+  verbs: 
+  - get 
+  - list 
+  - watch 

@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: ephex-ro
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: ephex-ro
+subjects:
+- kind: ServiceAccount
+  name: ephex
+  namespace: {{ .Values.namespace }}
